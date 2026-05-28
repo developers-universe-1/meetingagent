@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Call {
+  id        String   @id @default(cuid())
+  title     String
+  recordingUrl String?
+  duration  Int
+  sentiment String
+  stage     String
+  objection String?
+  nextSteps String?
+  dealValue Int?
+  repName   String
+  createdAt DateTime @default(now())
+}
+
+model Deal {
+  id          String   @id @default(cuid())
+  company     String
+  contact     String
+  stage       String
+  value       Int
+  repName     String
+  lastActivity String?
+  createdAt   DateTime @default(now())
+}
+
+model Rep {
+  id            String @id @default(cuid())
+  name          String
+  title         String
+  callsHandled  Int
+  avgTalkRatio  Float
+  objectionRate Float
+  closeRate     Float
+  score         Int
+}
