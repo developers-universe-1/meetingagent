@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-  "name": "mcp-sales-agent",
+  "name": "developers-universe-1/mcp-sales-agent",
   "version": "1.0.0",
-  "description": "MCP-native sales intelligence framework. Orchestrate CRM, call recorders, mailbox, and calendar through a unified Model Context Protocol layer.",
+  "description": "MCP-native sales intelligence: CRM, call analysis, pipeline, and rep coaching.",
   "homepage": "https://github.com/developers-universe-1/agentic-sales-engine",
   "repository": {
     "type": "git",
@@ -12,7 +12,11 @@
   "transport": {
     "type": "stdio",
     "command": "npx",
-    "args": ["-y", "ts-node", "src/mcp/server.ts"]
+    "args": [
+      "-y",
+      "ts-node",
+      "src/mcp/server.ts"
+    ]
   },
   "tools": [
     {
