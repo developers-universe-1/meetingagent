@@ -1,0 +1,31 @@
+# MCP Server — Cursor Rules
+
+This is an MCP-native server built with Next.js + TypeScript. When editing code, follow these patterns:
+
+## Architecture
+- `src/mcp/server.ts` — MCP stdio server entry point. Add new tools here first.
+- `src/lib/agent/` — AI agent logic (streaming, analysis, scoring)
+- `src/lib/integrations/` — CRM and data source clients (Salesforce, HubSpot, Gong, etc.)
+- `src/lib/demo/` — Rich mock data for zero-config demo mode
+- `src/app/api/` — REST + SSE endpoints that wrap MCP tools
+
+## Adding a New Tool
+1. Add tool schema to `TOOLS` array in `src/mcp/server.ts`
+2. Add handler branch in `handleToolCall()`
+3. Delegate to the real module in `src/lib/` (don't put business logic in the server)
+4. Return JSON-serialized result with `isError: false`
+5. Add test in `src/lib/__tests__/` or `src/mcp/__tests__/`
+
+## Code Style
+- TypeScript strict mode
+- Zod for all runtime validation
+- Jest for testing
+- Tailwind for UI
+- Framer Motion for animations
+
+## Demo Mode
+All tools should work without API keys. Use `src/lib/demo/` data when env vars are empty.
+
+## MCP Transport
+- Stdio: `npx ts-node src/mcp/server.ts`
+- SSE: `npm run dev` then hit `/api/mcp/sse` (add this endpoint if missing)

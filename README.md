@@ -172,6 +172,10 @@ See [`QUICK_TEST_QUERIES.md`](./QUICK_TEST_QUERIES.md) for end-to-end test scena
 
 See [`TROUBLESHOOTING.md`](./TROUBLESHOOTING.md) for the most common setup issues and how to fix them.
 
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add tools, run tests, and submit PRs.
+
 ## Roadmap
 
 - [ ] Full MCP stdio transport server implementation
