@@ -11,6 +11,36 @@ An MCP-native sales intelligence framework. Orchestrate CRM, call recorders, mai
 
 **Demo mode works without API keys.** Clone, `npm install`, `npm run dev`, and explore the full dashboard in under 60 seconds.
 
+## One-Line Install
+
+**Claude Desktop** — paste into `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "sales": {
+      "command": "npx",
+      "args": ["-y", "ts-node", "src/mcp/server.ts"]
+    }
+  }
+}
+```
+
+**Claude Code**:
+```bash
+claude mcp add sales-agent -- npx -y ts-node src/mcp/server.ts
+```
+
+**Cursor** — add to `.cursor/mcp.json`:
+```json
+{
+  "mcpServers": [{
+    "name": "sales-agent",
+    "command": "npx",
+    "args": ["-y", "ts-node", "src/mcp/server.ts"]
+  }]
+}
+```
+
 ## Why MCP for Sales?
 
 Sales stacks are fragmented: Gong for calls, Salesforce for pipeline, Gmail for follow-ups, Slack for alerts. Each has its own API, auth flow, and rate limits. The Model Context Protocol (MCP) provides a standard way to expose these as **tools** that any AI agent can discover and invoke. This project is a reference implementation of that idea — a sales-specific MCP server with a visual trace panel so you can see every tool call the agent makes.
