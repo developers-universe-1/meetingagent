@@ -1,0 +1,27 @@
+name: mcp-sales-agent
+version: 1.0.0
+description: >
+  MCP-native sales intelligence framework. Orchestrate CRM, call recorders,
+  mailbox, and calendar through a unified Model Context Protocol layer.
+homepage: https://github.com/developers-universe-1/agentic-sales-engine
+license: MIT
+transport:
+  type: stdio
+  command: npx
+  args:
+    - -y
+    - ts-node
+    - src/mcp/server.ts
+tools:
+  - name: analyze_call
+    description: Ingest a sales call recording and extract sentiment, objections, talk ratios, and stage inference.
+  - name: update_pipeline
+    description: Move a deal to a new stage in the CRM pipeline.
+  - name: draft_followup
+    description: Generate a post-call follow-up email from conversation content.
+  - name: generate_brief
+    description: Surface last call summary, open commitments, recurring objections, and winning patterns.
+  - name: score_rep
+    description: Get per-position scorecards with talk-time ratios and objection-resolution rates.
+  - name: get_benchmarks
+    description: Get industry benchmark data for win rate, show rate, and cycle length.
